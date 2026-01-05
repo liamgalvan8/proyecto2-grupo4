@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #393be7;
+}
+
+.textos-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.texto404 {
+    font-size: 10rem;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.textoPrincipal {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.link-home {
+    background-color: #c5ffbc;
+    color: #393be7;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 40px;
+
+    border-radius: 50px;
+    display: inline-block;
+    border: none;
+    transition: 0.3s;
+}
+
+.link-home:hover {
+    background-color: white;
+    transform: translateY(-3px);
+}
