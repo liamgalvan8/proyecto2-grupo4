@@ -1,24 +1,30 @@
-
-import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router'
-import Home from './pages/home/home'
-import Aboutus from './pages/aboutus/aboutus'
-import Login from './components/Login/Login.jsx'
-import NotFound from './pages/notfound/notfound'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './components/Login/Login.jsx';
+import Registro from './components/Registro/Registro.jsx';
+import Home from './pages/home/home';
+import Aboutus from './pages/aboutus/aboutus';
+import NotFound from './pages/notfound/notfound';
+import './App.css';
 
 function App() {
-  
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<Login/>}/>
-      <Route path="/home" element={<Home/>}/>
-      <Route path="/aboutus" element={<Aboutus/>}/>
-      <Route path='*' element={<NotFound/>}/>
-    </Routes>
+      <Routes>
+       
+        <Route path="/" element={<Login />} />
+        
+        
+        <Route path="/registro" element={<Registro />} />
+        
+        
+        <Route path="/home" element={<Home />} />
+        <Route path="/aboutus" element={<Aboutus />} />
+        
+       
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </BrowserRouter>
-  )
-
+  );
 }
 
-export default App
+export default App;

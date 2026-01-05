@@ -1,4 +1,5 @@
-import './styles.css'
+import { Link } from 'react-router-dom'; // Importación necesaria
+import './styles.css';
 
 export default function Login() {
     return (
@@ -32,10 +33,11 @@ export default function Login() {
                 </form>
                 <div className="register">
                     Si no tienes una cuenta, toca en 
-                    <span className="register-link"> "REGISTRARSE" </span>
+                    {/* Cambiamos span por Link para que sea funcional */}
+                    <Link to="/registro" className="register-link"> "REGISTRARSE" </Link> 
                     para crear una cuenta y disfrutar codemusic.
                 </div>
             </div>
         </main>
-    )
+    );
 }
