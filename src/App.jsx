@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './components/Login/Login.jsx';
-import Registro from './components/Registro/Registro.jsx';
+import Login from './pages/Login/Login.jsx';
+import Registro from './pages/Registro/Registro.jsx';
 import Home from './pages/home/home';
 import Aboutus from './pages/aboutus/aboutus';
 import NotFound from './pages/notfound/notfound';
@@ -10,7 +10,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-       
         <Route path="/" element={<Login />} />
         
         
@@ -20,7 +19,6 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/aboutus" element={<Aboutus />} />
         
-       
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

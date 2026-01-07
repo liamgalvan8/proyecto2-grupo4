@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; 
+import { useNavigate, Link } from 'react-router-dom';
 import './registro.css';
 
 export default function Registro() {
     const navigate = useNavigate();
 
-    
+
     const [formData, setFormData] = useState({
         nombre: '',
         apellido: '',
@@ -13,7 +13,7 @@ export default function Registro() {
         fechaNacimiento: '',
         email: '',
         password: '',
-        rol: 'invitado' 
+        rol: 'invitado'
     });
 
     const handleChange = (e) => {
@@ -26,7 +26,7 @@ export default function Registro() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const usuariosViejos = JSON.parse(localStorage.getItem('usuarios')) || [];
-        
+
         if (usuariosViejos.find(u => u.email === formData.email)) {
             return alert('Este correo ya existe');
         }
@@ -34,12 +34,12 @@ export default function Registro() {
         usuariosViejos.push(formData);
         localStorage.setItem('usuarios', JSON.stringify(usuariosViejos));
         alert('¡Registro exitoso!');
-        navigate('/'); 
+        navigate('/');
     };
 
     return (
         <main className="registro-bg"> {/* Fondo completo y responsivo */}
-            <div className="card-registro"> 
+            <div className="card-registro">
                 <h1>REGISTRARSE</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="input-group">
@@ -69,8 +69,9 @@ export default function Registro() {
                     </div>
                     <button type="submit">REGISTRARSE</button>
                 </form>
+                
                 <div className="login-link">
-                    ¿Ya tienes cuenta? <Link to="/"><span>Inicia Sesión</span></Link>
+                    ¿Ya tienes cuenta? <Link to="/">Inicia Sesión</Link>
                 </div>
             </div>
         </main>

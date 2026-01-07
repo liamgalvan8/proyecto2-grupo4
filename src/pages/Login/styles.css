@@ -1,0 +1,77 @@
+
+.login-bg {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../../assets/images/fondo.png.jpeg') !important;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;      
+    justify-content: center;
+    padding: 20px;
+}
+
+.card-login {
+    background-color: #f0f9ff !important; 
+    padding: 3rem;
+    border-radius: 40px; 
+    width: 100%;
+    max-width: 420px; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    box-sizing: border-box;
+    border: none;
+}
+
+
+.input-group, 
+form,
+.register {
+    background-color: transparent !important; 
+    background: none !important;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    text-align: left; 
+}
+
+
+.card-login h1 {
+    color: #2e1a94 !important;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    background: transparent !important;
+}
+
+.card-login label {
+    display: block;
+    color: #2e1a94 !important; 
+    font-weight: bold;
+    margin-bottom: 8px;
+    background: transparent !important;
+}
+
+
+.card-login input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff !important; 
+    color: #1a1a7e !important;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+
+.card-login button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #2e1a94 !important;
+    color: white !important;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
