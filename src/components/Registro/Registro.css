@@ -1,100 +1,80 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
 .registro-bg {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
-    background-image: url('../../assets/images/fondo.png'); 
+    background-image: url('../../assets/images/fondo.png.jpeg') !important;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     display: flex;
     align-items: center;      
     justify-content: center;
-    padding: 20px; 
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 
 .card-registro {
-    background: rgba(230, 245, 255, 0.95); 
-    padding: 2rem;
-    border-radius: 30px;
+    background-color: #f0f9ff !important; 
+    padding: 2.5rem;
+    border-radius: 40px; 
     width: 100%;
     max-width: 450px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-align: center;
-    color: #1a1a7e;
+    box-sizing: border-box;
 }
+
+
+.card-registro .input-group, 
+.card-registro form,
+.card-registro h1 {
+    background-color: transparent !important; 
+    background: none !important;
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align: left; 
+}
+
 
 .card-registro h1 {
+    color: #2e1a94 !important;
     font-size: 2.2rem;
-    margin-bottom: 1.5rem;
     font-weight: bold;
-    text-transform: uppercase;
+    text-align: center; 
+    margin-top: 0;
 }
 
-
-.input-group {
-    text-align: left;
-    margin-bottom: 1rem;
-}
 
 .card-registro label {
     display: block;
-    margin-bottom: 0.3rem;
+    color: #2e1a94 !important; 
     font-weight: bold;
-    font-size: 0.85rem;
-    color: #2e1a94;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    background: transparent !important;
 }
 
 
 .card-registro input {
     width: 100%;
-    padding: 0.7rem;
-    border-radius: 10px;
-    border: none;
-    background-color: #b1bdcd; 
-    color: #1a1a7e;
-    font-size: 0.95rem;
-    outline: none;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff !important;
+    color: #1a1a7e !important;
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
-.card-registro input:focus {
-    background-color: #a1adbd;
-    box-shadow: 0 0 5px rgba(46, 26, 148, 0.3);
-}
 
 .card-registro button {
     width: 100%;
     padding: 1rem;
-    background-color: #2e1a94;
-    color: white;
+    background-color: #2e1a94 !important;
+    color: white !important;
     border: none;
-    border-radius: 12px;
+    border-radius: 15px;
     font-weight: bold;
-    font-size: 1.1rem;
     cursor: pointer;
-    margin-top: 1rem;
-    transition: background 0.3s;
-}
-
-.card-registro button:hover {
-    background-color: #1a1a7e;
-}
-
-/* Texto inferior y link al Login */
-.login-link {
-    margin-top: 1.2rem;
-    font-size: 0.8rem;
-    line-height: 1.4;
-}
-
-.login-link span {
-    color: #2e1a94;
-    font-weight: bold;
-    text-decoration: underline;
-    cursor: pointer;
+    text-transform: uppercase;
 }
