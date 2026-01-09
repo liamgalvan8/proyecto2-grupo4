@@ -1,0 +1,155 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.custom-navbar {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.nav-container {
+    /* background-color: #000; */
+    max-width: 2000px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: solid 2px white;
+    border-radius: 20px;
+}
+
+.nav-logo img {
+    width: 80px;
+    height: auto;
+    display: block;
+    padding: 10px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: #ffffff;
+    text-decoration: none;
+    /* QUITA EL SUBRAYADO AZUL */
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #1db954;
+    /* Color verde CodeMusic al pasar el mouse */
+}
+
+/* Botón Suscribirse */
+.btn-suscribirse {
+    background-color: #1db954;
+    border: solid 2px white;
+    color: #ffffff !important;
+    /* Texto negro sobre fondo verde queda mejor */
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.btn-suscribirse:hover {
+    background-color: #1ed760;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+    /* El botón contenedor */
+    .nav-menu-toggle {
+        display: none;
+        /* Se oculta en PC */
+        flex-direction: column;
+        justify-content: space-between;
+        /* Separa las barritas */
+        width: 30px;
+        height: 21px;
+        /* Altura total del icono */
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1002;
+    }
+
+    /* Las 3 líneas individuales */
+    .nav-menu-toggle .line {
+        display: block;
+        /* IMPORTANTE para que se vea */
+        width: 100%;
+        height: 3px;
+        background-color: #ffffff;
+        /* COLOR BLANCO */
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    /* Mostrar solo en pantallas pequeñas */
+    @media (max-width: 768px) {
+        .nav-menu-toggle {
+            display: flex;
+            /* Aquí se hace visible en el celular */
+        }
+    }
+
+    .nav-links {
+        /* Transformamos la lista en un menú vertical */
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* Escondido a la derecha */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.95);
+        /* Fondo oscuro */
+        width: 100%;
+        height: 100vh;
+        transition: 0.5s;
+        gap: 40px;
+        z-index: 1000;
+    }
+
+    /* Clase que se activa con el click (necesita el useState que pusimos antes) */
+    .nav-links.active {
+        right: 0;
+        /* Aparece al centro */
+    }
+
+    /* Centrado manual para móvil (quitamos el absolute de PC) */
+    .nav-links {
+        position: fixed;
+        left: auto;
+        transform: none;
+    }
+
+    /* Escondemos el botón de suscribirse de PC y usamos el de móvil si lo tienes */
+    .nav-actions-desktop {
+        display: none;
+    }
+}
