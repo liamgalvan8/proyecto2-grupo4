@@ -21,24 +21,28 @@ const Aboutus = () => {
     ];
 
     return (
-        <div className="about-bg">
+        <div className="about-bg" id="nosotros">
             <div className="card-about-horizontal">
+                {/* Banner superior */}
                 <img 
                     src="/src/assets/images/codemusic.png" 
                     alt="Banner Codemusic" 
                     className="about-banner-img" 
                 />
 
-                <h2 className="about-section-subtitle">SOBRE NOSOTROS</h2>
-                <h1 className="about-main-title">
-                    CODEMUSIC: DONDE CADA LÍNEA DE CÓDIGO SUENA A TU CANCIÓN FAVORITA.
-                </h1>
-
-                <div className="about-footer-text">
-                    <p>Somos un grupo de desarrolladores apasionados por la música y la innovación.</p>
-                    <p>Ubicados en el corazón de San Miguel de Tucumán, trabajamos para crear el futuro del sonido digital.</p>
+                {/* MARCO UNIFICADO DE TEXTO */}
+                <div className="about-text-container">
+                    <h2 className="about-section-subtitle">SOBRE NOSOTROS</h2>
+                    <h1 className="about-main-title">
+                        CODEMUSIC: DONDE CADA LÍNEA DE CÓDIGO SUENA A TU CANCIÓN FAVORITA.
+                    </h1>
+                    <div className="about-description-box">
+                        <p>Somos un grupo de desarrolladores apasionados por la música y la innovación.</p>
+                        <p>Ubicados en el corazón de San Miguel de Tucumán, trabajamos para crear el futuro del sonido digital.</p>
+                    </div>
                 </div>
 
+                {/* Galería de Integrantes */}
                 <div className="about-gallery-horizontal">
                     {equipo.map((miembro, index) => (
                         <div key={index} className="member-item">
@@ -51,9 +55,9 @@ const Aboutus = () => {
                     ))}
                 </div>
 
+                {/* Sección de Ubicación Responsiva */}
                 <div className="about-map-container">
                     <h2 className="map-section-title">¿DÓNDE ENCONTRARNOS?</h2>
-                    
                     <div className="map-content-layout">
                         <div className="map-info-text">
                             <h3>RollingCode School</h3>
@@ -64,20 +68,18 @@ const Aboutus = () => {
                                 Visitar sitio web
                             </a>
                         </div>
-
                         <div className="map-wrapper">
                             <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.1022202950946!2d-65.20939042456312!3d-26.836171376692345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225c0f17f30f1d%3A0xe06066d659b8e3e4!2sRollingCode%20School!5e0!3m2!1ses!2sar!4v1715800000000!5m2!1ses!2sar" 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.102370797519!2d-65.2097419235832!3d-26.83670089001306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225c37d7f30f1d%3A0xfe606c6759b8e3e4!2sRollingCode%20School!5e0!3m2!1ses-419!2sar!4v1700000000000" 
                                 width="100%" 
-                                height="250" 
-                                style={{ border: 0 }} 
+                                height="100%" 
+                                style={{ border: 0, minHeight: '250px' }} 
                                 allowFullScreen="" 
                                 loading="lazy">
                             </iframe>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     );
