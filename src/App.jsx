@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login/Login.jsx';
 import Registro from './pages/Registro/Registro.jsx';
 import Home from './pages/home/home';
-import Aboutus from './pages/aboutus/aboutus';
+import Aboutus from './pages/Aboutus/Aboutus.jsx';
 import NotFound from './pages/notfound/notfound';
 import './App.css';
 
