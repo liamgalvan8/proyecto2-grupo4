@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NavBar from './components/Navbar/navbar.jsx'
 import Login from './pages/Login/Login.jsx';
 import Registro from './pages/Registro/Registro.jsx';
 import Home from './pages/home/home';
@@ -9,8 +10,10 @@ import './App.css';
 function App() {
   return (
     <BrowserRouter>
+      <NavBar/>
+
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         
         
         <Route path="/registro" element={<Registro />} />
