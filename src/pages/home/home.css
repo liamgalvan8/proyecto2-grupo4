@@ -1,0 +1,380 @@
+/* --- VARIABLES --- */
+:root {
+    --azul-main: #1e37f2;
+    --verde-lima: #c4ff9a;
+    --azul-oscuro: #0b1761;
+    --celeste-bg: #f0faff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home-main-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--azul-main);
+    /* */
+}
+
+section {
+    scroll-margin-top: 80px;
+}
+
+/* --- HERO --- */
+.home-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 5% 80px 5%;
+    position: relative;
+}
+
+.home-content {
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.home-title {
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    font-weight: 900;
+    line-height: 0.9;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.home-btn-primary {
+    background-color: var(--verde-lima);
+    color: var(--azul-main);
+    padding: 18px 45px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.home-image-section {
+    flex: 1.2;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.home-img {
+    width: 100%;
+    max-width: 520px;
+    z-index: 5;
+    position: relative;
+}
+
+.bg-shape {
+    position: absolute;
+    border-radius: 50px;
+}
+
+.shape-blue {
+    width: 85%;
+    height: 90%;
+    background: #4a62ff;
+    transform: rotate(-10deg);
+    top: -20px;
+    left: 5%;
+    z-index: 1;
+}
+
+.shape-green {
+    width: 80%;
+    height: 85%;
+    background: var(--verde-lima);
+    transform: rotate(5deg);
+    bottom: -10px;
+    right: 0;
+    z-index: 2;
+}
+
+/* --- PLAYLISTS --- */
+.playlists-section {
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.playlists-main-title {
+    color: white;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 60px;
+}
+
+.playlists-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.playlist-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.color-variant-1,
+.color-variant-5 {
+    background-color: #e0faff;
+}
+
+.color-variant-2,
+.color-variant-6 {
+    background-color: var(--verde-lima);
+}
+
+.color-variant-3,
+.color-variant-4 {
+    background-color: #2b1185;
+}
+
+.module-number {
+    color: white;
+    text-decoration: underline;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-align: left;
+    display: block;
+    margin: 15px 0 5px 0;
+}
+
+.module-text {
+    color: white;
+    font-weight: 500;
+    text-align: left;
+}
+
+/* --- FEATURES --- */
+.features-section {
+    background-color: var(--celeste-bg);
+    padding: 100px 5%;
+}
+
+.features-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.watermark-logo {
+    position: absolute;
+    width: 130%;
+    opacity: 0.08;
+    top: -50%;
+    left: -15%;
+    pointer-events: none;
+}
+
+.feature-main-title {
+    font-size: 4rem;
+    color: #1e1b6b;
+    font-weight: 500;
+    line-height: 1.1;
+    position: relative;
+    z-index: 2;
+}
+
+.feature-main-title .highlight {
+    background-color: var(--verde-lima);
+    padding: 0 15px;
+    border-radius: 50px;
+}
+
+.features-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.feature-icon {
+    background: #5548ff;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-item h4 {
+    color: #5548ff;
+    font-weight: 700;
+}
+
+.feature-item p {
+    color: #444;
+    padding-left: 50px;
+    line-height: 1.6;
+}
+
+/* --- PLANES --- */
+.plans-section {
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.plan-visual {
+    width: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.variant-free {
+    background-color: #e0faff;
+}
+
+.variant-standard {
+    background-color: var(--verde-lima);
+}
+
+.variant-ultra {
+    background-color: #4a62ff;
+}
+
+.plan-price-bar {
+    background: rgba(11, 23, 97, 0.9);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.btn-subscribe {
+    background: var(--verde-lima);
+    color: var(--azul-oscuro);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.btn-subscribe:hover {
+    transform: scale(1.05);
+}
+
+.plan-features {
+    list-style: none;
+    padding: 20px 0;
+    color: white;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* --- SOPORTE --- */
+.support-section {
+    background-color: var(--azul-main);
+    /* */
+    padding: 100px 5% 40px 5%;
+    width: 100%;
+    display: block !important;
+    position: relative;
+}
+
+.support-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.support-man-img {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+}
+
+.support-main-title {
+    color: white;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 40px;
+}
+
+.support-email-btn {
+    background-color: var(--verde-lima);
+    color: var(--azul-main);
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.1rem;
+}
+
+.support-legal-info {
+    margin-top: 60px;
+    color: white;
+    font-family: monospace;
+    font-size: 0.8rem;
+}
+
+.legal-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 992px) {
+
+    .home-content,
+    .features-content,
+    .support-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .playlists-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .plans-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+}

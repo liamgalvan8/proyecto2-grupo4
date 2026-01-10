@@ -7,42 +7,41 @@ const Footer = () => {
         <footer className="footer">
             <div className="container-footer">
                 <div className="footer-row">
-
+                    
                     {/* Columna 1: Información */}
                     <div className="footer-links">
-                        <h4>Más información</h4>
+                        <h4>MÁS INFORMACIÓN</h4>
                         <ul>
-                            <li><Link to="/contacto">Contacto</Link></li>
-                            <li><Link to="/sobre-nosotros">Acerca de nosotros</Link></li>
-                            <li><Link to="/privacidad">Política de privacidad</Link></li>
+                            <li><Link to="/404">Contacto</Link></li>
+                            <li><Link to="/404">Acerca de nosotros</Link></li>
+                            <li><Link to="/404">Política de privacidad</Link></li>
                         </ul>
                     </div>
 
                     {/* Columna 2: Ayuda */}
                     <div className="footer-links">
-                        <h4>Ayuda</h4>
+                        <h4>AYUDA</h4>
                         <ul>
-                            <li><Link to="/ayuda">Centro de ayuda</Link></li>
-                            <li><Link to="/dispositivos">Dispositivos compatibles</Link></li>
-                            <li><Link to="/comentarios">Envíanos tus comentarios</Link></li>
+                            <li><Link to="/404">Centro de ayuda</Link></li>
+                            <li><Link to="/404">Dispositivos compatibles</Link></li>
+                            <li><Link to="/404">Envíanos tus comentarios</Link></li>
                         </ul>
                     </div>
 
-                    {/* Columna 3: Redes Sociales */}
+                    {/* Columna 3: Redes Sociales (Iconos originales) */}
                     <div className="footer-links">
-                        <h4>Síguenos</h4>
+                        <h4>SÍGUENOS</h4>
                         <div className="social-links">
-                            {/* Nota: Para redes sociales externas se usa <a>, 
-                  para páginas internas se usa <Link> */}
-                            <a href="https://twitter.com" target="_blank" rel="noreferrer"><i className="bi bi-twitter-x"></i></a>
-                            <a href="https://facebook.com" target="_blank" rel="noreferrer"><i className="bi bi-facebook"></i></a>
-                            <a href="https://instagram.com" target="_blank" rel="noreferrer"><i className="bi bi-instagram"></i></a>
-                            <a href="https://tiktok.com" target="_blank" rel="noreferrer"><i className="bi bi-tiktok"></i></a>
-                            <a href="https://youtube.com" target="_blank" rel="noreferrer"><i className="bi bi-youtube"></i></a>
+                            <a href="#"><i className="fab fa-x-twitter"></i></a>
+                            <a href="#"><i className="fab fa-facebook-f"></i></a>
+                            <a href="#"><i className="fab fa-instagram"></i></a>
+                            <a href="#"><i className="fab fa-tiktok"></i></a>
+                            <a href="#"><i className="fab fa-youtube"></i></a>
                         </div>
                     </div>
 
                 </div>
+                {/* Se eliminó la sección footer-bottom de derechos reservados */}
             </div>
         </footer>
     );
