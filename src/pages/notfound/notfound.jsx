@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router'; // 
+import { Link } from 'react-router-dom';
 import error404 from '../../assets/images/error404.gif';
 import fondo from '../../assets/images/fondo-3.png';
 import './notfound.css';

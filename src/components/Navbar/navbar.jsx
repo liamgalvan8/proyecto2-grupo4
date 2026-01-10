@@ -37,7 +37,7 @@ const NavBar = () => {
 
                         {/* Botón Suscribirse dentro de la lista para móviles */}
                         <li className="nav-btn-mobile">
-                            <Link to="/" className="btn-suscribirse">Administrador</Link>
+                            <Link to="/admin" className="btn-suscribirse">Administrador</Link>
                         </li>
                     </ul>
                 </div>
