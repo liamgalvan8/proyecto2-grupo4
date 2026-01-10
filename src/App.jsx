@@ -6,6 +6,7 @@ import Home from './pages/home/home';
 import Aboutus from './pages/aboutus/aboutus.jsx';
 import NotFound from './pages/notfound/notfound';
 import Admin from './pages/admin/Admin.jsx';
+import Footer from './components/footer/footer.jsx';
 import './App.css';
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
         
         <Route path="*" element={<NotFound />} />
       </Routes>
+
+      <Footer/>
     </BrowserRouter>
   );
 }
