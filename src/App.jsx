@@ -5,6 +5,7 @@ import Registro from './pages/Registro/Registro.jsx';
 import Home from './pages/home/home';
 import Aboutus from './pages/Aboutus/Aboutus.jsx';
 import NotFound from './pages/notfound/notfound';
+import Footer from './components/footer/footer.jsx';
 import './App.css';
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
         
         <Route path="*" element={<NotFound />} />
       </Routes>
+
+      <Footer/>
     </BrowserRouter>
   );
 }
