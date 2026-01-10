@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import './home.css';
 
 // Importación de imágenes
-import girlImage from '../../assets/images/fondo.png.jpeg';
-import logoMarcaAgua from '../../assets/images/codemusic.png';
-import manSupport from '../../assets/images/man-pink.png';
+import girlImage from '../../assets/images/fondo.png.jpeg'; 
+import manSupport from '../../assets/images/fondo.png.jpeg'; 
 
 const Home = () => {
     const playlists = [
@@ -19,7 +18,7 @@ const Home = () => {
 
     return (
         <div className="home-main-wrapper">
-
+            
             {/* SECCIÓN 1: HERO */}
             <section className="home-container" id="inicio">
                 <div className="home-content">
@@ -93,9 +92,7 @@ const Home = () => {
             {/* SECCIÓN 4: SOPORTE */}
             <section className="support-section" id="contacto">
                 <div className="support-container">
-                    <div className="support-image-wrapper">
-                        <img src={manSupport} alt="Soporte Codemusic" className="support-man-img" />
-                    </div>
+                    <img src={manSupport} alt="Soporte" className="support-man-img" />
                     <div className="support-content">
                         <h2 className="support-main-title">¡Estamos emocionados de que elijas a codemusic!</h2>
                         <a href="mailto:SOPORT@CODEMUSIC.COM" className="support-email-btn">SOPORT@CODEMUSIC.COM</a>
