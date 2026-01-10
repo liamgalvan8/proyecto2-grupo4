@@ -1,0 +1,317 @@
+/* ==========================================================================
+   1. VARIABLES Y RESET GLOBAL
+   ========================================================================== */
+:root {
+    --azul-main: #1e37f2;
+    --verde-lima: #c4ff9a;
+    --azul-oscuro: #0b1761;
+    --forma-azul: #4a62ff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Contenedor principal con fondo azul sólido */
+.home-main-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--azul-main);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ajuste para que el Navbar fijo no tape el inicio de las secciones */
+section {
+    padding: 100px 5% 60px 5%;
+    scroll-margin-top: 80px;
+}
+
+/* ==========================================================================
+   2. SECCIÓN HERO (BIENVENIDA)
+   ========================================================================== */
+.home-container {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-content {
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.home-text-section {
+    flex: 1;
+}
+
+.home-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    /* Título grande e impactante */
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.home-description {
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+    line-height: 1.5;
+    max-width: 500px;
+}
+
+.home-btn-primary {
+    background-color: var(--verde-lima);
+    /* Botón verde lima */
+    color: var(--azul-main);
+    padding: 18px 45px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.home-btn-primary:hover {
+    transform: translateY(-5px);
+}
+
+/* Imagen Hero con marco decorativo */
+.home-image-section {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.home-img {
+    width: 100%;
+    max-width: 550px;
+    z-index: 2;
+    position: relative;
+    border-radius: 20px;
+}
+
+.bg-shape-hero {
+    position: absolute;
+    width: 85%;
+    height: 95%;
+    background-color: var(--verde-lima);
+    border-radius: 40px;
+    bottom: -20px;
+    right: -20px;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   3. SECCIÓN PLAYLISTS (MÓDULOS)
+   ========================================================================== */
+.playlists-section {
+    text-align: center;
+}
+
+.playlists-main-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 50px;
+}
+
+.playlists-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columnas */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.playlist-card {
+    text-align: left;
+}
+
+.playlist-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+    /* Respaldo si falla la imagen */
+}
+
+.playlist-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Colores de marcos por módulo */
+.color-variant-1,
+.color-variant-5 {
+    border: 5px solid #e0faff;
+}
+
+.color-variant-2,
+.color-variant-6 {
+    border: 5px solid var(--verde-lima);
+}
+
+.color-variant-3,
+.color-variant-4 {
+    border: 5px solid var(--forma-azul);
+}
+
+.module-number {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. SECCIÓN PLANES (TARJETAS)
+   ========================================================================== */
+.plans-section {
+    text-align: center;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.plan-card {
+    background: rgba(255, 255, 255, 0.05);
+    /* Tarjetas translúcidas */
+    border-radius: 30px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.plan-visual {
+    height: 180px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.variant-free {
+    background-color: #e0faff;
+}
+
+.variant-standard {
+    background-color: var(--verde-lima);
+}
+
+.variant-ultra {
+    background-color: var(--forma-azul);
+}
+
+.plan-price-bar {
+    width: 100%;
+    background: rgba(11, 23, 97, 0.9);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-subscribe {
+    background: var(--verde-lima);
+    color: var(--azul-oscuro);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   5. SECCIÓN SOPORTE
+   ========================================================================== */
+.support-section {
+    background-color: var(--azul-main);
+}
+
+.support-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.support-man-img {
+    width: 100%;
+    max-width: 450px;
+    /* Tamaño optimizado */
+    height: auto;
+}
+
+.support-main-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.support-email-btn {
+    background-color: var(--verde-lima);
+    /* Botón de email destacado */
+    color: var(--azul-main);
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+}
+
+.support-legal {
+    margin-top: 40px;
+    font-family: monospace;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   6. RESPONSIVO
+   ========================================================================== */
+@media (max-width: 1024px) {
+
+    .home-content,
+    .support-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .playlists-grid,
+    .plans-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+    }
+
+    .home-image-section {
+        justify-content: center;
+        margin-top: 40px;
+    }
+}
