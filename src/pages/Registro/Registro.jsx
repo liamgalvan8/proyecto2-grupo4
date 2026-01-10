@@ -34,7 +34,7 @@ export default function Registro() {
         usuariosViejos.push(formData);
         localStorage.setItem('usuarios', JSON.stringify(usuariosViejos));
         alert('¡Registro exitoso!');
-        navigate('/');
+        navigate('/login');
     };
 
     return (

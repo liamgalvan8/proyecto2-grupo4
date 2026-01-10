@@ -1,0 +1,86 @@
+.songs-table-container {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.songs-table-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.songs-search {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  max-width: 100%;
+}
+
+.songs-count {
+  color: #2e1a94;
+  font-weight: 600;
+  margin-left: 12px;
+}
+
+.songs-table-wrapper {
+  overflow-x: auto;
+}
+
+.songs-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.songs-table th,
+.songs-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.songs-table th {
+  background: rgba(46,26,148,0.03);
+  color: #2e1a94;
+  font-weight: 700;
+}
+
+.no-data {
+  text-align: center;
+  padding: 30px 0;
+  color: #666;
+}
+
+.btn {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.btn-edit {
+  background: #f3f3f3;
+  color: #333;
+}
+
+.btn-delete {
+  background: #ff5c5c;
+  color: white;
+}
+
+.preview-audio {
+  width: 160px;
+}
+
+@media (max-width: 720px) {
+  .songs-table {
+    min-width: 520px;
+  }
+  .preview-audio {
+    width: 120px;
+  }
+}
