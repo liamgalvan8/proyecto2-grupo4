@@ -35,9 +35,32 @@ function isValidUrl(url) {
   }
 }
 
+function isDataUrl(url) {
+  return typeof url === 'string' && url.startsWith('data:');
+}
+
+function isDataAudio(url) {
+  return isDataUrl(url) && url.startsWith('data:audio');
+}
+
+function isDataImage(url) {
+  return isDataUrl(url) && url.startsWith('data:image');
+}
+
 function isMp3Url(url) {
   if (!isValidUrl(url)) return false;
   return url.toLowerCase().split('?')[0].endsWith('.mp3');
+}
+
+function isAcceptableAudioSource(url) {
+  // Accept remote .mp3 URLs or data:audio/* (from file uploads)
+  if (!url) return false;
+  return isDataAudio(url) || isMp3Url(url) || String(url).toLowerCase().endsWith('.mp3');
+}
+
+function isAcceptableImageSource(url) {
+  if (!url) return false;
+  return isDataImage(url) || isValidUrl(url);
 }
 
 function formatDuration(seconds) {
@@ -53,8 +76,8 @@ function validateSong(song) {
   if (!song.titulo || !song.titulo.trim()) errors.push('El título es obligatorio');
   if (!song.artista || !song.artista.trim()) errors.push('El artista es obligatorio');
   if (!song.categoria || !song.categoria.trim()) errors.push('La categoría es obligatoria');
-  if (!song.imagenUrl || !isValidUrl(song.imagenUrl)) errors.push('imagenUrl debe ser una URL válida');
-  if (!song.audioUrl || !isMp3Url(song.audioUrl)) errors.push('audioUrl debe ser una URL válida que termine en .mp3');
+  if (!song.imagenUrl || !isAcceptableImageSource(song.imagenUrl)) errors.push('imagenUrl debe ser una URL válida o una imagen subida');
+  if (!song.audioUrl || !isAcceptableAudioSource(song.audioUrl)) errors.push('audioUrl debe ser una URL .mp3 válida o un archivo de audio subido');
   if (!song.duracion || !/^[0-9]+:[0-5][0-9]$/.test(song.duracion)) errors.push('La duración es obligatoria y debe tener formato MM:SS');
   return errors;
 }
@@ -124,6 +147,11 @@ export {
   deleteSong,
   isValidUrl,
   isMp3Url,
+  isDataUrl,
+  isDataAudio,
+  isDataImage,
+  isAcceptableAudioSource,
+  isAcceptableImageSource,
   formatDuration,
   validateSong,
 };

@@ -1,22 +1,68 @@
-import React, { useEffect, useState } from 'react';
-import { addSong, updateSong, isMp3Url, formatDuration } from '../../utils/songsStorage';
+import React, { useEffect, useState, useRef } from 'react';
+import { addSong, updateSong, isAcceptableAudioSource, formatDuration } from '../../utils/songsStorage';
 import './songModal.css';
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
 
 export default function SongModal({ isOpen, onClose, song = null }) {
   const [form, setForm] = useState(() => ({
     titulo: song?.titulo || '',
     artista: song?.artista || '',
     categoria: song?.categoria || '',
-    imagenUrl: song?.imagenUrl || '',
-    audioUrl: song?.audioUrl || '',
+    imagenUrl: song?.imagenUrl || '', // url or dataURL
+    audioUrl: song?.audioUrl || '', // url or dataURL
     duracion: song?.duracion || '',
     codigo: song?.codigo || '',
   }));
   const [loadingDuration, setLoadingDuration] = useState(false);
   const [error, setError] = useState(null);
+  const formRef = useRef(null);
+
+  // Handle image file input (convert to dataURL)
+  function handleImageFileChange(e) {
+    setError(null);
+    const f = e.target.files && e.target.files[0];
+    if (!f) return;
+    if (!f.type.startsWith('image/')) {
+      setError('El archivo debe ser una imagen válida');
+      return;
+    }
+    if (f.size > MAX_FILE_SIZE) {
+      setError('La imagen supera el límite de 5 MB');
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => setForm(prev => ({ ...prev, imagenUrl: reader.result }));
+    reader.onerror = () => setError('No se pudo leer la imagen');
+    reader.readAsDataURL(f);
+  }
+
+  // Handle audio file input (convert to dataURL and detect duration)
+  function handleAudioFileChange(e) {
+    setError(null);
+    const f = e.target.files && e.target.files[0];
+    if (!f) return;
+    if (!(f.type.includes('audio') || f.name.toLowerCase().endsWith('.mp3'))) {
+      setError('El archivo de audio debe ser un .mp3');
+      return;
+    }
+    if (f.size > MAX_FILE_SIZE) {
+      setError('El audio supera el límite de 5 MB');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const dataUrl = reader.result;
+      setForm(prev => ({ ...prev, audioUrl: dataUrl, duracion: '' }));
+    };
+    reader.onerror = () => setError('No se pudo leer el audio');
+    reader.readAsDataURL(f);
+  }
 
   useEffect(() => {
-    if (!form.audioUrl || !isMp3Url(form.audioUrl)) {
+    if (!form.audioUrl || !isAcceptableAudioSource(form.audioUrl)) {
+      // Clear duration if source not acceptable
       setTimeout(() => setForm(prev => ({ ...prev, duracion: '' })), 0);
       return;
     }
@@ -86,7 +132,7 @@ export default function SongModal({ isOpen, onClose, song = null }) {
         alert('Canción actualizada');
       } else {
         addSong(payload);
-        alert('Canción creada');
+        alert('Canción agregada');
       }
 
       window.dispatchEvent(new CustomEvent('songsChanged'));
@@ -106,52 +152,86 @@ export default function SongModal({ isOpen, onClose, song = null }) {
   return (
     <div className="modal-overlay">
       <div className="modal-card">
-        <h2>{song ? 'Editar Canción' : 'Crear Canción'}</h2>
-        <form onSubmit={onSubmit} className="modal-form">
-          {form.codigo && (
+        <h2>{song ? 'Editar Canción' : 'Agregar Canción'}</h2>
+
+        <div className="modal-content">
+          <form ref={formRef} onSubmit={onSubmit} className="modal-form">
+            {form.codigo && (
+              <div className="form-row">
+                <label>Código</label>
+                <input value={form.codigo} readOnly />
+              </div>
+            )}
+
             <div className="form-row">
-              <label>Código</label>
-              <input value={form.codigo} readOnly />
+              <label>Título *</label>
+              <input value={form.titulo} onChange={e => setForm(prev => ({ ...prev, titulo: e.target.value }))} required />
             </div>
-          )}
 
-          <div className="form-row">
-            <label>Título *</label>
-            <input value={form.titulo} onChange={e => setForm(prev => ({ ...prev, titulo: e.target.value }))} required />
-          </div>
+            <div className="form-row">
+              <label>Artista *</label>
+              <input value={form.artista} onChange={e => setForm(prev => ({ ...prev, artista: e.target.value }))} required />
+            </div>
 
-          <div className="form-row">
-            <label>Artista *</label>
-            <input value={form.artista} onChange={e => setForm(prev => ({ ...prev, artista: e.target.value }))} required />
-          </div>
+            <div className="form-row">
+              <label>Categoría *</label>
+              <input value={form.categoria} onChange={e => setForm(prev => ({ ...prev, categoria: e.target.value }))} required />
+            </div>
 
-          <div className="form-row">
-            <label>Categoría *</label>
-            <input value={form.categoria} onChange={e => setForm(prev => ({ ...prev, categoria: e.target.value }))} required />
-          </div>
+            <div className="form-row">
+              <label>Imagen (archivo o URL) *</label>
+              <input type="file" accept="image/*" onChange={handleImageFileChange} />
+              <input value={form.imagenUrl} onChange={e => setForm(prev => ({ ...prev, imagenUrl: e.target.value }))} placeholder="Pegar URL o usar archivo" required />
+              {form.imagenUrl && (
+                <div className="image-preview">
+                  <img src={form.imagenUrl} alt="Preview" className="preview-img" />
+                </div>
+              )}
+            </div>
 
-          <div className="form-row">
-            <label>Imagen URL *</label>
-            <input value={form.imagenUrl} onChange={e => setForm(prev => ({ ...prev, imagenUrl: e.target.value }))} required />
-          </div>
+            <div className="form-row">
+              <label>Audio (.mp3) * (archivo o URL)</label>
+              <input type="file" accept="audio/mpeg,.mp3" onChange={handleAudioFileChange} />
+              <input value={form.audioUrl} onChange={e => setForm(prev => ({ ...prev, audioUrl: e.target.value }))} placeholder="Pegar URL .mp3 o usar archivo" required />
+              {form.audioUrl && (
+                <div className="audio-preview">
+                  <audio controls preload="none" src={form.audioUrl} className="preview-audio">Tu navegador no soporta audio.</audio>
+                </div>
+              )}
+            </div>
 
-          <div className="form-row">
-            <label>Audio URL (.mp3) *</label>
-            <input value={form.audioUrl} onChange={e => setForm(prev => ({ ...prev, audioUrl: e.target.value }))} required />
-          </div>
+            <div className="form-row">
+              <label>Duración</label>
+              <input value={loadingDuration ? 'Detectando...' : form.duracion} readOnly />
+            </div>
 
-          <div className="form-row">
-            <label>Duración</label>
-            <input value={loadingDuration ? 'Detectando...' : form.duracion} readOnly />
-          </div>
+            {error && <div className="form-error">{error}</div>}
 
-          {error && <div className="form-error">{error}</div>}
+            <div style={{ height: 8 }} />
+          </form>
+        </div>
 
-          <div className="modal-actions">
-            <button type="button" className="btn btn-cancel" onClick={onClose}>Cancelar</button>
-            <button type="submit" className="btn btn-save" disabled={loadingDuration || !form.duracion}>Guardar</button>
-          </div>
-        </form>
+        <div className="modal-actions">
+          <button type="button" className="btn btn-cancel" onClick={onClose}>Cancelar</button>
+          <button
+            type="button"
+            className="btn btn-save"
+            onClick={() => {
+              const f = formRef.current;
+              if (!f) return;
+              if (typeof f.requestSubmit === 'function') {
+                f.requestSubmit();
+              } else if (typeof f.reportValidity === 'function') {
+                if (f.reportValidity()) f.submit();
+              } else {
+                f.submit();
+              }
+            }}
+            disabled={loadingDuration || !form.duracion}
+          >
+            {song ? 'Guardar' : 'Agregar'}
+          </button>
+        </div>
       </div>
     </div>
   );
