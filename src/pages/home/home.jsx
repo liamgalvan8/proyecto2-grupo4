@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './home.css';
 
-// Importación de imágenes
+
 import girlImage from '../../assets/images/fondo.png.jpeg'; 
 import manSupport from '../../assets/images/fondo.png.jpeg'; 
 
@@ -19,7 +19,7 @@ const Home = () => {
     return (
         <div className="home-main-wrapper">
             
-            {/* SECCIÓN 1: HERO */}
+
             <section className="home-container" id="inicio">
                 <div className="home-content">
                     <div className="home-text-section">
@@ -37,25 +37,27 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* SECCIÓN 2: PLAYLISTS */}
+
             <section className="playlists-section" id="playlists">
                 <h2 className="playlists-main-title">ESCUCHA NUESTRAS PLAYLIST</h2>
                 <div className="playlists-grid">
                     {playlists.map((item) => (
-                        <div key={item.id} className="playlist-card">
-                            <div className={`playlist-thumb color-variant-${item.id}`}>
-                                <img src={item.img} alt={`Módulo ${item.id}`} />
+                        <Link to={`/detalle/${item.id}`} key={item.id} className="playlist-link">
+                            <div className="playlist-card">
+                                <div className={`playlist-thumb color-variant-${item.id}`}>
+                                    <img src={item.img} alt={`Módulo ${item.id}`} />
+                                </div>
+                                <div className="playlist-info">
+                                    <span className="module-number">MÓDULO {item.id}</span>
+                                    <p className="module-text">{item.title}</p>
+                                </div>
                             </div>
-                            <div className="playlist-info">
-                                <span className="module-number">MÓDULO {item.id}</span>
-                                <p className="module-text">{item.title}</p>
-                            </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </section>
 
-            {/* SECCIÓN 3: PLANES */}
+
             <section className="plans-section" id="planes">
                 <h2 className="plans-main-title">NUESTROS PLANES</h2>
                 <div className="plans-grid">
@@ -89,7 +91,6 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* SECCIÓN 4: SOPORTE */}
             <section className="support-section" id="contacto">
                 <div className="support-container">
                     <img src={manSupport} alt="Soporte" className="support-man-img" />
