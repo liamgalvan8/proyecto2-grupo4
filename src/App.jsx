@@ -7,6 +7,10 @@ import Aboutus from './pages/aboutus/aboutus.jsx';
 import NotFound from './pages/notfound/notfound';
 import Admin from './pages/admin/Admin.jsx';
 import Footer from './components/footer/footer.jsx';
+
+
+import Detail from './pages/detail/detail.jsx'; 
+
 import './App.css';
 
 function App() {
@@ -16,14 +20,12 @@ function App() {
 
       <Routes>
         <Route path="/login" element={<Login />} />
-        
-        
         <Route path="/registro" element={<Registro />} />
-        
-        
         <Route path="/admin" element={<Admin />} />
         <Route path="/home" element={<Home />} />
         <Route path="/aboutus" element={<Aboutus />} />
+        
+        <Route path="/detalle/:id" element={<Detail />} />
         
         <Route path="*" element={<NotFound />} />
       </Routes>
