@@ -1,0 +1,171 @@
+
+.detail-main-wrapper {
+    background-color: #1e37f2; 
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 5% 80px 5%; 
+}
+
+.detail-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: 70px;
+    animation: fadeIn 0.8s ease-out; 
+}
+
+
+.detail-visual-section {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.song-img-detail {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 30px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+
+.bg-shape-detail {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 480px;
+    background-color: #c4ff9a;
+    border-radius: 40px;
+    top: 25px;
+    left: -25px;
+    z-index: 1;
+}
+
+
+.detail-info-section {
+    flex: 1;
+    color: white;
+}
+
+.song-detail-code {
+    color: #c4ff9a;
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.song-detail-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.song-detail-artist {
+    font-size: 2.2rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+.song-detail-specs {
+    margin-bottom: 40px;
+}
+
+.spec-item {
+    font-size: 1.3rem;
+    margin: 12px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.spec-item strong {
+    color: #c4ff9a;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-play-now {
+    background-color: #c4ff9a;
+    color: #1e37f2;
+    border: none;
+    padding: 16px 35px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-back-home {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 16px 35px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-play-now:hover {
+    transform: scale(1.05);
+    background-color: white;
+}
+
+.btn-back-home:hover {
+    background-color: white;
+    color: #1e37f2;
+}
+
+
+@media (max-width: 992px) {
+    .detail-container {
+        flex-direction: column; 
+        text-align: center;
+        gap: 50px;
+    }
+
+    .detail-info-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bg-shape-detail {
+        left: 0;
+        top: 20px;
+    }
+
+    .detail-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .spec-item {
+        justify-content: center;
+    }
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}

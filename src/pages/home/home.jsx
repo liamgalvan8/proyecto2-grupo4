@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './home.css';
 
-// Importación de imágenes
+
 import girlImage from '../../assets/images/fondo.png.jpeg'; 
 import logoMarcaAgua from '../../assets/images/codemusic.png';
 import manSupport from '../../assets/images/man-pink.png';
@@ -20,12 +20,15 @@ const Home = () => {
     return (
         <div className="home-main-wrapper">
             
-            {/* SECCIÓN 1: HERO */}
+            
             <section className="home-container" id="inicio">
                 <div className="home-content">
                     <div className="home-text-section">
                         <h1 className="home-title">BIENVENIDOS <br /> A <br /><span className="brand-name">CODEMUSIC</span></h1>
-                        <p className="home-description">Viví la experiencia musical con nosotros con audio DolbyAtmos, empieza ya con 7 días gratis de prueba.</p>
+                        <p className="home-description">
+                            Viví la experiencia musical con nosotros con audio DolbyAtmos, <br />
+                            empieza ya con 7 días gratis de prueba.
+                        </p>
                         <Link to="/404" className="home-btn-primary">OBTENER 1 MES GRATIS</Link>
                     </div>
                     <div className="home-image-section">
@@ -36,25 +39,27 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* SECCIÓN 2: PLAYLISTS */}
+           
             <section className="playlists-section" id="playlists">
                 <h2 className="playlists-main-title">ESCUCHA NUESTRAS PLAYLIST</h2>
                 <div className="playlists-grid">
                     {playlists.map((item) => (
-                        <div key={item.id} className="playlist-card">
-                            <div className={`playlist-thumb color-variant-${item.id}`}>
-                                <img src={item.img} alt={`Módulo ${item.id}`} />
+                        <Link to={`/detalle/${item.id}`} key={item.id} className="playlist-link">
+                            <div className="playlist-card">
+                                <div className={`playlist-thumb color-variant-${item.id}`}>
+                                    <img src={item.img} alt={`Módulo ${item.id}`} />
+                                </div>
+                                <div className="playlist-info">
+                                    <span className="module-number">MÓDULO {item.id}</span>
+                                    <p className="module-text">{item.title}</p>
+                                </div>
                             </div>
-                            <div className="playlist-info">
-                                <span className="module-number">MÓDULO {item.id}</span>
-                                <p className="module-text">{item.title}</p>
-                            </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </section>
 
-            {/* SECCIÓN 3: POR QUÉ ESCUCHAR */}
+            {/* SECCIÓN 3: POR QUÉ ESCUCHAR (FEATURES) */}
             <section className="features-section" id="nosotros">
                 <div className="features-content">
                     <div className="features-left">
@@ -86,7 +91,6 @@ const Home = () => {
                     <div className="plan-card">
                         <h3 className="plan-name">PLAN FREE</h3>
                         <div className="plan-visual variant-free">
-                            <img src="free.png" alt="Free" />
                             <div className="plan-price-bar">
                                 <span>0,00 USD / mes</span>
                                 <Link to="/404" className="btn-subscribe">SUSCRIBIRSE</Link>
@@ -103,7 +107,6 @@ const Home = () => {
                     <div className="plan-card">
                         <h3 className="plan-name">PLAN ESTANDAR</h3>
                         <div className="plan-visual variant-standard">
-                            <img src="standard.png" alt="Estándar" />
                             <div className="plan-price-bar">
                                 <div className="price-info">
                                     <span className="promo">0 USD Durante 1 mes</span>
@@ -123,7 +126,6 @@ const Home = () => {
                     <div className="plan-card">
                         <h3 className="plan-name">PLAN ULTRA</h3>
                         <div className="plan-visual variant-ultra">
-                            <img src="ultra.png" alt="Ultra" />
                             <div className="plan-price-bar">
                                 <div className="price-info">
                                     <span className="promo">0 USD Durante 1 mes</span>
@@ -162,8 +164,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-
-        </div> // <--- CIERRE ÚNICO DEL WRAPPER PRINCIPAL
+        </div>
     );
 };
 

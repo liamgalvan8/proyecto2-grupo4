@@ -19,7 +19,7 @@ export default function Admin() {
                 <p>Aquí estará la tabla de canciones (CRUD). Por ahora la vista es pública para poder validar la interfaz.</p>
 
                 <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 8 }}>
-                    <button className="btn btn-save" onClick={openCreate}>Crear canción</button>
+                    <button className="btn btn-save" onClick={openCreate}>Agregar canción</button>
                 </div>
 
                 <SongsTable onEdit={openEdit} />
