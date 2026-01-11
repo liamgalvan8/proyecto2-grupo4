@@ -1,6 +1,3 @@
-// Utilidades para persistencia de canciones en localStorage
-// key: 'songs'
-
 const STORAGE_KEY = 'songs';
 
 function _readStorage() {
@@ -18,11 +15,9 @@ function _writeStorage(songs) {
 }
 
 function generateId() {
-  // Try to use crypto.randomUUID if available (browser)
   if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
     return crypto.randomUUID();
   }
-  // Fallback: short random id
   return 'id-' + Math.random().toString(36).slice(2, 9);
 }
 
@@ -53,7 +48,6 @@ function isMp3Url(url) {
 }
 
 function isAcceptableAudioSource(url) {
-  // Accept remote .mp3 URLs or data:audio/* (from file uploads)
   if (!url) return false;
   return isDataAudio(url) || isMp3Url(url) || String(url).toLowerCase().endsWith('.mp3');
 }

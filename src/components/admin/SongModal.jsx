@@ -2,15 +2,15 @@ import React, { useEffect, useState, useRef } from 'react';
 import { addSong, updateSong, isAcceptableAudioSource, formatDuration } from '../../utils/songsStorage';
 import './songModal.css';
 
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
 export default function SongModal({ isOpen, onClose, song = null }) {
   const [form, setForm] = useState(() => ({
     titulo: song?.titulo || '',
     artista: song?.artista || '',
     categoria: song?.categoria || '',
-    imagenUrl: song?.imagenUrl || '', // url or dataURL
-    audioUrl: song?.audioUrl || '', // url or dataURL
+    imagenUrl: song?.imagenUrl || '',
+    audioUrl: song?.audioUrl || '',
     duracion: song?.duracion || '',
     codigo: song?.codigo || '',
   }));
@@ -18,7 +18,6 @@ export default function SongModal({ isOpen, onClose, song = null }) {
   const [error, setError] = useState(null);
   const formRef = useRef(null);
 
-  // Handle image file input (convert to dataURL)
   function handleImageFileChange(e) {
     setError(null);
     const f = e.target.files && e.target.files[0];
@@ -37,7 +36,6 @@ export default function SongModal({ isOpen, onClose, song = null }) {
     reader.readAsDataURL(f);
   }
 
-  // Handle audio file input (convert to dataURL and detect duration)
   function handleAudioFileChange(e) {
     setError(null);
     const f = e.target.files && e.target.files[0];
@@ -62,7 +60,6 @@ export default function SongModal({ isOpen, onClose, song = null }) {
 
   useEffect(() => {
     if (!form.audioUrl || !isAcceptableAudioSource(form.audioUrl)) {
-      // Clear duration if source not acceptable
       setTimeout(() => setForm(prev => ({ ...prev, duracion: '' })), 0);
       return;
     }
@@ -101,7 +98,6 @@ export default function SongModal({ isOpen, onClose, song = null }) {
     audio.preload = 'metadata';
     audio.src = form.audioUrl;
 
-    // cleanup
     return () => {
       mounted = false;
       try {

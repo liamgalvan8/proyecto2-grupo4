@@ -12,7 +12,6 @@ export default function SongsTable({ onEdit }) {
   }
 
   useEffect(() => {
-    // Listen for external changes (create/update/delete)
     const handler = () => loadSongs();
     window.addEventListener('songsChanged', handler);
     return () => window.removeEventListener('songsChanged', handler);

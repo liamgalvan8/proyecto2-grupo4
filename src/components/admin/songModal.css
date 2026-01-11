@@ -14,7 +14,7 @@
 .modal-card {
   background: #fff;
   border-radius: 12px;
-  padding: 0; /* moved padding to .modal-content to allow sticky footer */
+  padding: 0;
   width: 100%;
   max-width: 560px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.2);
@@ -70,7 +70,6 @@
   display: flex;
   justify-content: flex-end;
   gap: 8px;
-  /* Sticky footer so actions remain visible even when content scrolls */
   position: sticky;
   bottom: 0;
   background: linear-gradient(transparent, rgba(255,255,255,0.95));
