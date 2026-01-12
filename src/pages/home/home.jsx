@@ -8,6 +8,7 @@ import foto3 from '../../assets/images/7.png';
 import foto4 from '../../assets/images/8.png';
 import foto5 from '../../assets/images/9.png';
 import foto6 from '../../assets/images/10.png';
+import plan1 from '../../assets/images/3.png'
 import fondoplimpio from '../../assets/images/fondo-3.png'
 import logoMarcaAgua from '../../assets/images/codemusic.png';
 
@@ -103,6 +104,7 @@ const Home = () => {
                     <div className="plan-card">
                         <h3 className="plan-name">PLAN FREE</h3>
                         <div className="plan-visual variant-free">
+
                             <div className="plan-price-bar">
                                 <span>0,00 USD / mes</span>
                                 <Link to="/404" className="btn-subscribe">SUSCRIBIRSE</Link>
