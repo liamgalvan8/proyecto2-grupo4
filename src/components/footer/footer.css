@@ -1,75 +1,100 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-
+/* --- ESTILO GENERAL DEL FOOTER --- */
 .footer {
-    background-color: rgba(64, 64, 64, 0.499);
-    padding: 50px 0;
+    background-color: #0b1761; /* Azul profundo */
+    padding: 60px 0; /* Padding uniforme arriba y abajo */
     color: white;
     width: 100%;
-    border: solid 2px white;
-    border-radius: 10px;
+    border: none; 
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
 }
 
 .container-footer {
-    max-width: 1200px;
+    max-width: 1500px; /* Alineado al ancho de tu Navbar */
     margin: 0 auto;
-    padding: 0 20px;
-    background-color: #121212;
+    padding: 0 40px;
+    background-color: transparent; 
 }
 
 .footer-row {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* Para que en celular se pongan uno abajo de otro */
-    gap: 30px;
+    gap: 40px;
 }
 
 .footer-links h4 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: #1db954;
-    /* El verde de tu marca */
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    font-weight: 800;
+    color: #c4ff9a; /* Verde lima de la marca */
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
+/* --- LISTAS Y PUNTOS ADENTRO --- */
 .footer-links ul {
-    list-style: none;
+    list-style-position: inside; /* Puntos dentro del área azul */
+    list-style-type: disc; 
     padding: 0;
+    margin: 0;
 }
 
 .footer-links ul li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .footer-links ul li a {
-    color: #ccc;
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    transition: color 0.3s;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    padding-left: 5px; /* Espacio tras el punto */
 }
 
 .footer-links ul li a:hover {
-    color: white;
+    color: #c4ff9a;
+    padding-left: 10px;
+}
+
+/* --- REDES SOCIALES --- */
+.footer-links:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el título y los iconos */
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 .social-links a {
     display: inline-block;
-    height: 40px;
-    width: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
-    margin-right: 10px;
+    height: 45px;
+    width: 45px;
+    background-color: rgba(255, 255, 255, 0.05);
     text-align: center;
-    line-height: 40px;
-    border-radius: 50%;
+    line-height: 45px;
+    border-radius: 50%; /* Forma circular */
     color: white;
-    transition: all 0.5s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    text-decoration: none;
 }
 
 .social-links a:hover {
-    background-color: #1db954;
-    transform: translateY(-5px);
+    background-color: #c4ff9a;
+    color: #1e37f2;
+    transform: translateY(-8px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+    .footer-row {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
 }
