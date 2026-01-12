@@ -2,17 +2,23 @@ import { Link } from 'react-router-dom';
 import './home.css';
 
 
-import girlImage from '../../assets/images/fondo.png.jpeg'; 
+import girlImage from '../../assets/images/12.png'; 
+import foto1 from '../../assets/images/8.png'
+import foto2 from '../../assets/images/7.png'
+import foto3 from '../../assets/images/6.png'
+import foto4 from '../../assets/images/9.png'
+import foto5 from '../../assets/images/10.png'
+import foto6 from '../../assets/images/11.png'
 import logoMarcaAgua from '../../assets/images/codemusic.png';
 
 const Home = () => {
     const playlists = [
-        { id: 1, title: "Toma el control todas las mañanas", img: "ruta-1.jpg" },
-        { id: 2, title: "Conviértete en el DJ de tu equipo", img: "ruta-2.jpg" },
-        { id: 3, title: "Envia musica sin necesidad de estar cerca", img: "ruta-3.jpg" },
-        { id: 4, title: "Incrementa tu impacto", img: "ruta-4.jpg" },
-        { id: 5, title: "Alegra a los demas con musica", img: "ruta-5.jpg" },
-        { id: 6, title: "exporta tus playlist desde otras plataformas", img: "ruta-6.jpg" },
+        { id: 1, title: "Toma el control todas las mañanas", img: foto1 },
+        { id: 2, title: "Conviértete en el DJ de tu equipo", img: foto2},
+        { id: 3, title: "Envia musica sin necesidad de estar cerca", img: foto3 },
+        { id: 4, title: "Incrementa tu impacto", img: foto4 },
+        { id: 5, title: "Alegra a los demas con musica", img: foto5 },
+        { id: 6, title: "exporta tus playlist desde otras plataformas", img: foto6 },
     ];
 
     return (
