@@ -18,13 +18,13 @@ html {
 }
 
 
-nav, .navbar-container { 
+/* nav, .navbar-container { 
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     background-color: var(--azul-main); 
-}
+} */
 
 .home-main-wrapper {
     background-color: var(--azul-main);
