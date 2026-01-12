@@ -8,6 +8,7 @@ import foto3 from '../../assets/images/7.png';
 import foto4 from '../../assets/images/8.png';
 import foto5 from '../../assets/images/9.png';
 import foto6 from '../../assets/images/10.png';
+import fondoplimpio from '../../assets/images/fondo-3.png'
 import logoMarcaAgua from '../../assets/images/codemusic.png';
 
 const Home = () => {
@@ -22,25 +23,34 @@ const Home = () => {
 
     return (
         <div className="home-main-wrapper">
+<section className="home-container" id="inicio">
+    {/* Imagen de fondo (Marca de agua) */}
+    <img 
+        src={fondoplimpio} 
+        alt="" 
+        className="home-watermark" 
+    />
 
+    <div className="home-content">
+        <div className="home-text-section">
+            <h1 className="home-title">
+                BIENVENIDOS <br /> A <br />
+                <span className="brand-name">CODEMUSIC</span>
+            </h1>
+            <p className="home-description">
+                Viví la experiencia musical con nosotros con audio Dolby Atmos, <br />
+                empieza ya con 7 días gratis de prueba.
+            </p>
+            <Link to="/404" className="home-btn-primary">
+                OBTENER 1 MES GRATIS
+            </Link>
+        </div>
 
-            <section className="home-container" id="inicio">
-                <div className="home-content">
-                    <div className="home-text-section">
-                        <h1 className="home-title">BIENVENIDOS <br /> A <br /><span className="brand-name">CODEMUSIC</span></h1>
-                        <p className="home-description">
-                            Viví la experiencia musical con nosotros con audio Dolby Atmos, <br />
-                            empieza ya con 7 días gratis de prueba.
-                        </p>
-                        <Link to="/404" className="home-btn-primary">OBTENER 1 MES GRATIS</Link>
-                    </div>
-                    <div className="home-image-section">
-                        <div className="bg-shape shape-blue"></div>
-                        <div className="bg-shape shape-green"></div>
-                        <img src={girlImage} alt="Chica escuchando música" className="home-img" />
-                    </div>
-                </div>
-            </section>
+        <div className="home-image-section">
+            <img src={girlImage} alt="Chica escuchando música" className="home-img" />
+        </div>
+    </div>
+</section>
 
 
             <section className="playlists-section" id="playlists">
@@ -146,23 +156,6 @@ const Home = () => {
             </section>
 
 
-            <section className="support-section" id="contacto">
-                <div className="support-container">
-                    <div className="support-content">
-                        <h2 className="support-main-title">¡Estamos emocionados de que elijas a CodeMusic!</h2>
-                        <div className="support-info-box">
-                            <p className="support-text-label">PARA CUALQUIER PREGUNTA SOBRE LA PLATAFORMA, COMUNICATE AL SOPORTE</p>
-                            <a href="mailto:SOPORT@CODEMUSIC.COM" className="support-email-btn">SOPORT@CODEMUSIC.COM</a>
-                        </div>
-                        <div className="support-legal-info">
-                            <p>COPYRIGHT © 2026 CODEMUSIC INC. TODOS LOS DERECHOS RESERVADOS.</p>
-                            <div className="legal-links">
-                                <Link to="/404">POLÍTICA DE PRIVACIDAD</Link> | <Link to="/404">AVISO LEGAL</Link> | <Link to="/404">MAPA DEL SITIO</Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
     );
 };

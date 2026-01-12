@@ -7,7 +7,7 @@ const Footer = () => {
         <footer className="footer">
             <div className="container-footer">
                 <div className="footer-row">
-                    
+
                     {/* Columna 1: Información */}
                     <div className="footer-links">
                         <h4>MÁS INFORMACIÓN</h4>
@@ -32,11 +32,11 @@ const Footer = () => {
                     <div className="footer-links">
                         <h4>SÍGUENOS</h4>
                         <div className="social-links">
-                            <a href="#"><i className="fab fa-x-twitter"></i></a>
-                            <a href="#"><i className="fab fa-facebook-f"></i></a>
-                            <a href="#"><i className="fab fa-instagram"></i></a>
-                            <a href="#"><i className="fab fa-tiktok"></i></a>
-                            <a href="#"><i className="fab fa-youtube"></i></a>
+                            <a href="#"><i className="bi bi-twitter-x"></i></a>
+                            <a href="#"><i className="bi bi-facebook"></i></a>
+                            <a href="#"><i className="bi bi-instagram"></i></a>
+                            <a href="#"><i className="bi bi-tiktok"></i></a>
+                            <a href="#"><i className="bi bi-youtube"></i></a>
                         </div>
                     </div>
 
