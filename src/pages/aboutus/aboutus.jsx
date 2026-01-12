@@ -1,5 +1,5 @@
 import React from 'react';
-import './Aboutus.css';
+import './aboutus.css';
 
 const Aboutus = () => {
     const equipo = [
