@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { toast } from 'react-toastify';
 import { addSong, updateSong, isAcceptableAudioSource, formatDuration } from '../../utils/songsStorage';
 import './songModal.css';
 
@@ -125,10 +126,10 @@ export default function SongModal({ isOpen, onClose, song = null }) {
     try {
       if (song && song.codigo) {
         updateSong(song.codigo, payload);
-        alert('Canción actualizada');
+        toast.success('Canción actualizada');
       } else {
         addSong(payload);
-        alert('Canción agregada');
+        toast.success('Canción agregada');
       }
 
       window.dispatchEvent(new CustomEvent('songsChanged'));

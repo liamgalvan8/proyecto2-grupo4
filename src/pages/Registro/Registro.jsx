@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './registro.css';
 
 export default function Registro() {
@@ -28,12 +29,12 @@ export default function Registro() {
         const usuariosViejos = JSON.parse(localStorage.getItem('usuarios')) || [];
 
         if (usuariosViejos.find(u => u.email === formData.email)) {
-            return alert('Este correo ya existe');
+            return toast.error('Este correo ya existe');
         }
 
         usuariosViejos.push(formData);
         localStorage.setItem('usuarios', JSON.stringify(usuariosViejos));
-        alert('¡Registro exitoso!');
+        toast.success('¡Registro exitoso!');
         navigate('/login');
     };
 

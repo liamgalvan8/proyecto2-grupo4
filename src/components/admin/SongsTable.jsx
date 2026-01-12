@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { getSongs, deleteSong } from '../../utils/songsStorage';
+import ConfirmModal from '../modal/ConfirmModal';
 import './songsTable.css';
 
 export default function SongsTable({ onEdit }) {
   const [songs, setSongs] = useState(() => getSongs());
   const [query, setQuery] = useState('');
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [songToDelete, setSongToDelete] = useState(null);
 
   function loadSongs() {
     const s = getSongs();
@@ -18,15 +22,26 @@ export default function SongsTable({ onEdit }) {
   }, []);
 
   function handleDelete(codigo) {
-    const ok = window.confirm('¿Estás seguro que querés eliminar esta canción?');
-    if (!ok) return;
+    setSongToDelete(codigo);
+    setShowConfirm(true);
+  }
+
+  function confirmDelete() {
     try {
-      deleteSong(codigo);
+      deleteSong(songToDelete);
       loadSongs();
-      alert('Canción eliminada');
+      toast.success('Canción eliminada');
     } catch (e) {
-      alert('Error al eliminar: ' + e.message);
+      toast.error('Error al eliminar: ' + e.message);
+    } finally {
+      setShowConfirm(false);
+      setSongToDelete(null);
     }
+  }
+
+  function cancelDelete() {
+    setShowConfirm(false);
+    setSongToDelete(null);
   }
 
   const filtered = songs.filter(s => {
@@ -39,7 +54,14 @@ export default function SongsTable({ onEdit }) {
   });
 
   return (
-    <div className="songs-table-container">
+    <>
+      <ConfirmModal 
+        isOpen={showConfirm}
+        message="¿Estás seguro que querés eliminar esta canción?"
+        onConfirm={confirmDelete}
+        onCancel={cancelDelete}
+      />
+      <div className="songs-table-container">
       <div className="songs-table-header">
         <input
           type="text"
@@ -93,5 +115,6 @@ export default function SongsTable({ onEdit }) {
         </table>
       </div>
     </div>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { login, isAdmin } from '../../utils/authStorage';
 import './styles.css'; 
 
@@ -27,7 +28,7 @@ export default function Login() {
 
         if (usuarioEncontrado) {
             login(usuarioEncontrado);
-            alert(`¡Bienvenido, ${usuarioEncontrado.nombre}!`);
+            toast.success(`¡Bienvenido, ${usuarioEncontrado.nombre}!`);
             
             if (isAdmin()) {
                 navigate('/admin');
@@ -35,7 +36,7 @@ export default function Login() {
                 navigate('/home');
             }
         } else {
-            alert('Correo o contraseña incorrectos');
+            toast.error('Correo o contraseña incorrectos');
         }
     };
 

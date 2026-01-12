@@ -5,3 +5,12 @@ body, #root {
   width: 100%;
   min-height: 100vh;
 }
+
+/* Estilos personalizados para react-toastify */
+.Toastify__toast--success {
+  background-color: #2e1a94 !important;
+}
+
+.Toastify__toast--error {
+  background-color: #ff5c5c !important;
+}

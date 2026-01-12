@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import NavBar from './components/Navbar/navbar.jsx'
 import Login from './pages/Login/Login.jsx';
 import Registro from './pages/Registro/Registro.jsx';
@@ -17,6 +19,14 @@ import './App.css';
 function App() {
   return (
     <BrowserRouter>
+      <ToastContainer
+        position="top-right"
+        autoClose={3500}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        theme="colored"
+      />
       <NavBar/>
 
       <Routes>
