@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { login, isAdmin } from '../../utils/authStorage';
 import './styles.css'; 
 
 export default function Login() {
@@ -25,8 +26,14 @@ export default function Login() {
         );
 
         if (usuarioEncontrado) {
+            login(usuarioEncontrado);
             alert(`¡Bienvenido, ${usuarioEncontrado.nombre}!`);
-            navigate('/home'); 
+            
+            if (isAdmin()) {
+                navigate('/admin');
+            } else {
+                navigate('/home');
+            }
         } else {
             alert('Correo o contraseña incorrectos');
         }
