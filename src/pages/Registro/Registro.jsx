@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import './registro.css';
+import './Registro.css';
 
 export default function Registro() {
     const navigate = useNavigate();
