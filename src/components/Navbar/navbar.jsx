@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { logout, isAuthenticated, getCurrentUser, isAdmin } from '../../utils/authStorage';
 import logo from '../../assets/images/logo-blanco.png';
-import './Navbar.css';
+import './navbar.css';
 
 const NavBar = () => {
     const navigate = useNavigate();
