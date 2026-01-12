@@ -13,11 +13,11 @@
 
 .modal-card {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 30px;
   padding: 0;
   width: 100%;
   max-width: 560px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   max-height: 90vh;
   display: flex;
   flex-direction: column;
@@ -61,9 +61,20 @@
 }
 
 .modal-form input {
-  padding: 10px 12px;
-  border-radius: 8px;
+  padding: 12px;
+  border-radius: 10px;
   border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #1a1a7e;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-form input:focus {
+  outline: none;
+  border-color: #2e1a94;
+  box-shadow: 0 0 0 3px rgba(46, 26, 148, 0.1);
 }
 
 .modal-actions {
@@ -80,16 +91,35 @@
 .btn-cancel {
   background: #f3f3f3;
   border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background: #e5e5e5;
 }
 
 .btn-save {
   background: #2e1a94;
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.btn-save:hover {
+  background: #1e1070;
+}
+
+.btn-save:disabled {
+  background: #a0a0a0;
+  cursor: not-allowed;
 }
 
 .form-error {
@@ -99,4 +129,21 @@
   padding: 8px 10px;
   border-radius: 6px;
   margin-bottom: 8px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .modal-card {
+    margin: 10px;
+    max-width: calc(100% - 20px);
+    border-radius: 20px;
+  }
+
+  .modal-content {
+    padding: 15px;
+  }
+
+  .modal-actions {
+    padding: 10px 15px;
+  }
 }
