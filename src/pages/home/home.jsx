@@ -1,11 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import './home.css';
 
 
 import girlImage from '../../assets/images/fondo.png.jpeg'; 
 import logoMarcaAgua from '../../assets/images/codemusic.png';
-import manSupport from '../../assets/images/man-pink.png';
 
 const Home = () => {
     const playlists = [
@@ -143,12 +141,8 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* SECCIÓN 5: SOPORTE */}
             <section className="support-section" id="contacto">
                 <div className="support-container">
-                    <div className="support-image-wrapper">
-                        <img src={manSupport} alt="Soporte Codemusic" className="support-man-img" />
-                    </div>
                     <div className="support-content">
                         <h2 className="support-main-title">¡Estamos emocionados de que elijas a codemusic!</h2>
                         <div className="support-info-box">
