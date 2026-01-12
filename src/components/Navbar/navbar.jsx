@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { logout, isAuthenticated, getCurrentUser, isAdmin } from '../../utils/authStorage';
 import logo from '../../assets/images/logo-blanco.png';
 import './Navbar.css';
 
 const NavBar = () => {
-    // Estado para el menú hamburguesa en móviles
+    const navigate = useNavigate();
     const [menuAbierto, setMenuAbierto] = useState(false);
+    const user = getCurrentUser();
+
+    const handleLogout = () => {
+        logout();
+        navigate('/login');
+    };
 
     return (
         <div className="home-container">
@@ -31,14 +38,34 @@ const NavBar = () => {
                     {/* Links de Navegación */}
                     <ul className={`nav-links ${menuAbierto ? 'active' : ''}`}>
                         <li><Link to="/home" onClick={() => setMenuAbierto(false)}>Inicio</Link></li>
-                        <li><Link to="/registro" onClick={() => setMenuAbierto(false)}>Registro</Link></li>
-                        <li><Link to="/login" onClick={() => setMenuAbierto(false)}>Inicio Sesion</Link></li>
+                        
+                        {!isAuthenticated() ? (
+                            <>
+                                <li><Link to="/registro" onClick={() => setMenuAbierto(false)}>Registro</Link></li>
+                                <li><Link to="/login" onClick={() => setMenuAbierto(false)}>Inicio Sesión</Link></li>
+                            </>
+                        ) : (
+                            <>
+                                <li><span style={{ color: '#fff', padding: '0 12px' }}>Hola, {user?.nombre}</span></li>
+                                <li>
+                                    <button 
+                                        onClick={() => { handleLogout(); setMenuAbierto(false); }}
+                                        style={{ background: 'transparent', border: 'none', color: '#fff', cursor: 'pointer', padding: 0 }}
+                                    >
+                                        Cerrar Sesión
+                                    </button>
+                                </li>
+                            </>
+                        )}
+                        
                         <li><Link to="/aboutus" onClick={() => setMenuAbierto(false)}>Sobre Nosotros</Link></li>
 
-                        {/* Botón Suscribirse dentro de la lista para móviles */}
-                        <li className="nav-btn-mobile">
-                            <Link to="/admin" className="btn-suscribirse">Administrador</Link>
-                        </li>
+                        {/* Botón Admin solo visible si es administrador */}
+                        {isAdmin() && (
+                            <li className="nav-btn-mobile">
+                                <Link to="/admin" className="btn-suscribirse" onClick={() => setMenuAbierto(false)}>Administrador</Link>
+                            </li>
+                        )}
                     </ul>
                 </div>
             </nav>
