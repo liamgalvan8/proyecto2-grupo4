@@ -4,18 +4,20 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 20px;
+    padding: 100px 20px 20px 20px;
     box-sizing: border-box;
-    background: linear-gradient(180deg, rgba(46,26,148,0.03), rgba(46,26,148,0.02));
+    background-image: url('../../assets/images/fondo.png.jpeg');
+    background-size: cover;
+    background-position: center;
 }
 
 .card-admin {
     background-color: #f0f9ff;
-    padding: 1.5rem;
-    border-radius: 20px;
+    padding: 2rem;
+    border-radius: 30px;
     width: 100%;
     max-width: 960px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 

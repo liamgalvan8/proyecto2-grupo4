@@ -13,10 +13,20 @@
 
 .songs-search {
   flex: 1;
-  padding: 10px 12px;
+  padding: 12px;
   border-radius: 10px;
   border: 1px solid #cbd5e1;
   max-width: 100%;
+  background-color: #ffffff;
+  color: #1a1a7e;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.songs-search:focus {
+  outline: none;
+  border-color: #2e1a94;
+  box-shadow: 0 0 0 3px rgba(46, 26, 148, 0.1);
 }
 
 .songs-count {
@@ -55,11 +65,13 @@
 }
 
 .btn {
-  padding: 8px 10px;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
   margin-right: 6px;
+  font-weight: bold;
+  transition: background 0.2s ease;
 }
 
 .btn-edit {
@@ -67,9 +79,17 @@
   color: #333;
 }
 
+.btn-edit:hover {
+  background: #e0e0e0;
+}
+
 .btn-delete {
   background: #ff5c5c;
   color: white;
+}
+
+.btn-delete:hover {
+  background: #e04545;
 }
 
 .preview-audio {
@@ -82,5 +102,25 @@
   }
   .preview-audio {
     width: 120px;
+  }
+  .songs-table-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .songs-count {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .songs-table th,
+  .songs-table td {
+    padding: 8px 6px;
+    font-size: 0.85rem;
+  }
+  .btn {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    margin-right: 4px;
   }
 }
